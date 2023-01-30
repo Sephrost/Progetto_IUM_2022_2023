@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <title>Pagina di Registrazione</title>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    
+    <!-- bootstrap library -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+    
+    <style>
+      .modal-sheet .modal-dialog {
+        transition: bottom .75s ease-in-out;
+      }
+      .modal-sheet .modal-footer {
+        padding-bottom: 2rem;
+      }
+
+    </style>
+</head>
+<body>
+  <div class="modal modal-signin position-static d-block bg-secondary py-5" tabindex="-1" role="dialog" id="modalSignin">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content rounded-4 shadow">
+        <div class="modal-header p-5 pb-4 border-bottom-0">
+          <!-- <h1 class="modal-title fs-5" >Modal title</h1> -->
+          <h1 class="fw-bold mb-0 fs-2">Registrati Qui!</h1>
+        </div>
+        <div class="modal-body p-5 pt-0">
+          <form class="">
+            <div class="form-floating mb-3">
+              <input type="email" class="form-control rounded-3" id="Email" placeholder="name@example.com">
+              <label for="Email">Email</label>
+            </div>
+            <div class="form-floating mb-3">
+              <input type="password" class="form-control rounded-3" id="Password" placeholder="Password">
+              <label for="Password">Password</label>
+              <small id="passwordHelpBlock" class="form-text text-muted"></small>
+                  La password deve essere 8-16 caratteri
+            </div>
+            <div class="form-floating mb-3">
+              <input type="password" class="form-control rounded-3" id="ConfirmPassword" placeholder="Password">
+              <label for="ConfirmPassword">Conferma Password</label>
+            </div>
+            <div class="form-floating mb-3">
+              <input type="text" class="form-control rounded-3" id="NickName" placeholder="Username">
+              <label for="NickName">NickName</label>
+            </div>
+            <!-- Nome, cognome, telefono, inidrizzo, url immagine profilo-->
+            <div class="form-floating mb-3">
+              <input type="text" class="form-control rounded-3" id="Name" placeholder="Name">
+              <label for="Name">Nome</label>
+            </div>
+            <div class="form-floating mb-3">
+              <input type="text" class="form-control rounded-3" id="Surname" placeholder="Surname">
+              <label for="Surname">Cognome</label>
+            </div>
+            <div class="form-floating mb-3">
+              <input type="tel" class="form-control rounded-3" id="Phone" placeholder="Phone">
+              <label for="Phone">Telefono</label>
+            </div>
+            <div class="form-floating mb-3">
+              <input type="text" class="form-control rounded-3" id="Address" placeholder="Address">
+              <label for="Address">inidrizzo Stradale</label>
+              <small id="AddressHelpBlock" class="form-text text-muted"></small>
+                  Es. via Roma 1 
+            </div>
+              <div class="form-floating mb-3">
+                <input type="text" class="form-control" id="City" placeholder="Città" required>
+                <label for="City">Città</label>
+              </div>
+              <div class="form-floating mb-3">
+                <input type="number" class="form-control" id="Cap" placeholder="Cap" required>
+                <label for="Cap">Cap</label>
+              </div>
+            <div class="form-floating mb-3">
+              <input type="url" class="form-control rounded-3" id="Image" placeholder="Profile Image">
+              <label for="Image">Url Immagine Profilo</label>
+            </div>
+            <button class="w-100 mb-2 btn btn-lg rounded-3 btn-primary" type="submit"  
+              onclick="
+                event.preventDefault();
+                // use greech pi to separate the fields 
+                var separator = String.fromCodePoint(0x03C0);
+                Registration.postMessage(
+                $('#Email').val()+ separator + $('#Password').val() + separator + 
+                $('#ConfirmPassword').val() + separator + $('#NickName').val() + separator + $('#Name').val() + separator + 
+                $('#Surname').val() + separator + $('#Phone').val() + separator + 
+                $('#Address').val() + separator + $('#City').val() + separator + 
+                $('#Cap').val() + separator + $('#Image').val());
+                ">
+            Registrati</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

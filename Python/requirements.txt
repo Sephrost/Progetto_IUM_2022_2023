@@ -1,0 +1,4 @@
+networkx
+matplotlib
+customtkinter >=5.0.2
+pillow
